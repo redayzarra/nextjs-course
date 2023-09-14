@@ -23,6 +23,35 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 
 This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
+## Data Fetching
+
+You can fetch data and use caching with this:
+
+```typescript
+interface User {
+  id: number;
+  name: string;
+}
+
+const UsersPage = async () => {
+  const res = await fetch("URL", {
+    next: { revalidate: 10 },
+  });
+  const users: User[] = await res.json();
+
+  return (
+    <>
+      <h1>Users</h1>
+      <ul>
+        {users.map((user) => (
+          <li key={user.id}>{user.name}</li>
+        ))}
+      </ul>
+    </>
+  );
+};
+```
+
 ## Learn More
 
 To learn more about Next.js, take a look at the following resources:
