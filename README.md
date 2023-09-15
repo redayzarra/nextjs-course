@@ -52,6 +52,23 @@ const UsersPage = async () => {
 };
 ```
 
+## API with Next.js
+
+You can get a collection of objects with this:
+
+```typescript
+import { NextRequest, NextResponse } from "next/server";
+
+export function GET(request: NextRequest) {
+  return NextResponse.json([
+    { id: 1, name: "ReDay" },
+    { id: 2, name: "Josh" },
+    { id: 3, name: "Mark" },
+  ]);
+}
+
+```
+
 ## Learn More
 
 To learn more about Next.js, take a look at the following resources:
