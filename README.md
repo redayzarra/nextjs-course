@@ -54,7 +54,9 @@ const UsersPage = async () => {
 
 ## API with Next.js
 
-You can get a collection of objects with this:
+### GET endpoint
+
+You can create a GET api endpoint with this:
 
 ```typescript
 import { NextRequest, NextResponse } from "next/server";
@@ -67,6 +69,25 @@ export function GET(request: NextRequest) {
   ]);
 }
 
+```
+
+### POST endpoint
+
+You can create a POST api endpoint with this:
+
+```typescript
+export async function POST(request: NextRequest) {
+  const body = await request.json();
+
+  if (!body.name) {
+    return NextResponse.json(
+      { error: "Name is required! Please try again." },
+      { status: 400 }
+    );
+  }
+
+  return NextResponse.json({ id: 1, name: body.name }, { status: 201 });
+}
 ```
 
 ## Learn More
