@@ -54,7 +54,7 @@ const UsersPage = async () => {
 
 ## API with Next.js
 
-### GET endpoint
+### GET request
 
 You can create a GET api endpoint with this:
 
@@ -71,7 +71,7 @@ export function GET(request: NextRequest) {
 
 ```
 
-### POST endpoint
+### POST request
 
 You can create a POST api endpoint with this:
 
@@ -87,6 +87,29 @@ export async function POST(request: NextRequest) {
   }
 
   return NextResponse.json({ id: 1, name: body.name }, { status: 201 });
+}
+```
+
+### PUT request
+
+You can create a PUT api endpoint with this:
+
+```typescript
+export async function PUT(
+  request: NextRequest,
+  { params }: { params: { id: number } }
+) {
+  const body = await request.json();
+
+  if (!body.name) {
+    return NextResponse.json({ error: "Name is required." }, { status: 400 });
+  }
+
+  if (params.id > 10) {
+    return NextResponse.json({ error: "User not found." }, { status: 404 });
+  }
+
+  return NextResponse.json({ id: 1, name: body.name });
 }
 ```
 
