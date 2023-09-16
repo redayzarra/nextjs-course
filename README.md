@@ -113,6 +113,23 @@ export async function PUT(
 }
 ```
 
+### DELETE request
+
+You can create a DELETE api endpoint with this:
+
+```typescript
+export function DELETE(
+  request: NextRequest,
+  { params }: { params: { id: number } }
+) {
+  if (params.id > 10) {
+    return NextResponse.json({ error: "User not found." }, { status: 404 });
+  }
+
+  return NextResponse.json({});
+}
+```
+
 ## Learn More
 
 To learn more about Next.js, take a look at the following resources:
