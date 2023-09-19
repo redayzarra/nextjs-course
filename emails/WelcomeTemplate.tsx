@@ -15,7 +15,7 @@ const WelcomeTemplate = ({ name }: { name: string }) => {
       <Body>
         <Container>
           <Text>Hello {name}!</Text>
-          <Link href="https://www.youtube.com/">www.youtube.com</Link>
+          <Link href="https://www.youtube.com/">YouTube</Link>
         </Container>
       </Body>
     </Html>
