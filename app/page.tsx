@@ -9,7 +9,7 @@ export default async function Home() {
   // const session = await getServerSession(authOptions);
 
   return (
-    <main>
+    <main className="relative h-screen">
       {/* <h1>Hello {session && <span>{session.user!.name}</span>}</h1>
       <Link href="/users">Users</Link>
       <ProductCard /> */}
@@ -19,8 +19,11 @@ export default async function Home() {
       <Image
         src="https://bit.ly/react-cover"
         alt="cover of React course"
-        width={300}
-        height={170}
+        fill
+        className="object-cover"
+        sizes="(max-width: 480px) 100vw, (max-width: 768px) 50vw, 33vw"
+        quality={100}
+        priority
       />
     </main>
   );
