@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import { CldUploadWidget, CldImage } from "next-cloudinary";
+import { Metadata } from "next";
 
 interface CloudinaryResult {
   public_id: string;
@@ -44,5 +45,14 @@ const UploadPage = () => {
     </>
   );
 };
+
+export async function generateMetadata(): Promise<Metadata> {
+  const product = await fetch("");
+
+  return {
+    title: "product.title",
+    description: "product.description",
+  };
+}
 
 export default UploadPage;
