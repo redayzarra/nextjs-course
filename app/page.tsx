@@ -32,7 +32,9 @@ export default function Home() {
       <Image src={girl} alt="A female model with short hair" />
 
       <button
-        onClick={() => {
+        onClick={async () => {
+          const _ = (await import("lodash")).default;
+
           const users = [{ name: "c" }, { name: "a" }, { name: "b" }];
 
           const sorted = _.orderBy(users, ["name"]);
