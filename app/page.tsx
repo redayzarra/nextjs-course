@@ -3,13 +3,13 @@
 import Link from "next/link";
 import ProductCard from "./components/ProductCard";
 import { getServerSession } from "next-auth";
-import { authOptions } from "./api/auth/[...nextauth]/route";
 import Image from "next/image";
 import girl from "@/public/images/shorthair.jpg";
 import { Metadata } from "next";
 import { useState } from "react";
 import dynamic from "next/dynamic";
 import _ from "lodash";
+import { authOptions } from "./api/auth/authOptions";
 
 // const HeavyComponent = dynamic(() => import("./components/HeavyComponent"), {
 //   ssr: false,
