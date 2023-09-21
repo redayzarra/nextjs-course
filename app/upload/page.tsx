@@ -46,13 +46,13 @@ const UploadPage = () => {
   );
 };
 
-export async function generateMetadata(): Promise<Metadata> {
-  const product = await fetch("");
+// export async function generateMetadata(): Promise<Metadata> {
+//   const product = await fetch("");
 
-  return {
-    title: "product.title",
-    description: "product.description",
-  };
-}
+//   return {
+//     title: "product.title",
+//     description: "product.description",
+//   };
+// }
 
 export default UploadPage;

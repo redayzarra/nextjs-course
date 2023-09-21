@@ -1,5 +1,3 @@
-"use client";
-
 import Link from "next/link";
 import ProductCard from "./components/ProductCard";
 import { getServerSession } from "next-auth";
@@ -19,7 +17,7 @@ import { authOptions } from "./api/auth/authOptions";
 export default function Home() {
   // const session = await getServerSession(authOptions);
 
-  const [isVisible, setVisible] = useState(false);
+  // const [isVisible, setVisible] = useState(false);
 
   return (
     <main className="relative h-screen">
@@ -31,7 +29,7 @@ export default function Home() {
 
       <Image src={girl} alt="A female model with short hair" />
 
-      <button
+      {/* <button
         onClick={async () => {
           const _ = (await import("lodash")).default;
 
@@ -42,7 +40,7 @@ export default function Home() {
         }}
       >
         Show
-      </button>
+      </button> */}
 
       {/* <Image
         src="https://bit.ly/react-cover"
