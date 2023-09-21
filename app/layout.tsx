@@ -14,7 +14,8 @@ const roboto = Roboto({
 });
 
 const poppins = localFont({
-  src: "../public/fonts/poppins.woff2"
+  src: "../public/fonts/poppins.woff2",
+  variable: "--font-poppins"
 })
 
 export const metadata: Metadata = {
@@ -31,7 +32,7 @@ export default function RootLayout({
     <AuthProvider>
       <html lang="en" data-theme="winter">
         <GoogleAnalyticsScript />
-        <body className={poppins.className}>
+        <body className={poppins.variable}>
           <NavBar />
           <main className="p-5">{children}</main>
         </body>
