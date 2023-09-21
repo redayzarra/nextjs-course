@@ -9,8 +9,12 @@ import girl from "@/public/images/shorthair.jpg";
 import { Metadata } from "next";
 import { useState } from "react";
 import dynamic from "next/dynamic";
+import _ from "lodash";
 
-const HeavyComponent = dynamic(() => import("./components/HeavyComponent"));
+// const HeavyComponent = dynamic(() => import("./components/HeavyComponent"), {
+//   ssr: false,
+//   loading: () => <p>Loading...</p>,
+// });
 
 export default function Home() {
   // const session = await getServerSession(authOptions);
@@ -27,8 +31,16 @@ export default function Home() {
 
       <Image src={girl} alt="A female model with short hair" />
 
-      <button onClick={() => setVisible(!isVisible)}>Show</button>
-      {isVisible && <HeavyComponent />}
+      <button
+        onClick={() => {
+          const users = [{ name: "c" }, { name: "a" }, { name: "b" }];
+
+          const sorted = _.orderBy(users, ["name"]);
+          console.log(sorted);
+        }}
+      >
+        Show
+      </button>
 
       {/* <Image
         src="https://bit.ly/react-cover"
