@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import ProductCard from "./components/ProductCard";
 import { getServerSession } from "next-auth";
@@ -5,9 +7,15 @@ import { authOptions } from "./api/auth/[...nextauth]/route";
 import Image from "next/image";
 import girl from "@/public/images/shorthair.jpg";
 import { Metadata } from "next";
+import { useState } from "react";
+import dynamic from "next/dynamic";
 
-export default async function Home() {
+const HeavyComponent = dynamic(() => import("./components/HeavyComponent"));
+
+export default function Home() {
   // const session = await getServerSession(authOptions);
+
+  const [isVisible, setVisible] = useState(false);
 
   return (
     <main className="relative h-screen">
@@ -18,6 +26,9 @@ export default async function Home() {
       <h1>Hello World</h1>
 
       <Image src={girl} alt="A female model with short hair" />
+
+      <button onClick={() => setVisible(!isVisible)}>Show</button>
+      {isVisible && <HeavyComponent />}
 
       {/* <Image
         src="https://bit.ly/react-cover"
